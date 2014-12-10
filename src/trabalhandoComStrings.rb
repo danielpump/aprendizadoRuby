@@ -148,7 +148,7 @@ Resultado: Como esperado a reutilização de uma string freeze é muito mais rá
 era esperado dado a diferença de conceitos.
 Já com a criação das strings dinamicas praticamente não houve diferença no custo de criação entre a freeze e a mutavel.
 
-=end
+=end  
 
 #String mutavel X String freeze estaticas
 puts "String mutavel X String freeze estaticas"
