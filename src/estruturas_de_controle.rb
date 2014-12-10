@@ -41,10 +41,25 @@ puts "Olá #{nome} com unless e só a variavel" unless nome
 #Iterações
 
 #For
+#A grande mudança neste for é a forma como é declarado o range de iteração, ainda temos que ver o for encadeado
+for numero in (1..15)
+	puts "Este é o numero #{numero} no for"
+end
 
+#While sem grandes mudanças executa até que a condição passada seja falsa
+numero = 0
+while numero <= 15
+	puts "Este é o numero #{numero} no while"
+	#Sempre lembrar que é legar poder usar um espeço " " para a chamanda do metodo, como no comando abaixo
+	numero += 1
+end
 
-
-
+#Until (Seria o repita) executa até que a condição passada seja falsa
+numero = 0
+until numero == 15
+	puts "Este é o numero #{numero} no until"
+	numero += 1
+end	
 
 
 
