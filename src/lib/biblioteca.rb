@@ -23,6 +23,15 @@ class Biblioteca
     @livros.values.flatten
   end
   
+  #Recebendo um bloco de código para filtrar os livros
+  #Blocos de código não precisam ser recebidos como parametro e para executar o metodo só precisa ser chamado o étodo yield
+  #Caso um método que recebe um bloco, não receba o bloco na chamada do método, ele lança a seguinte exceção LocalJumpError
+  def livros_por_categoria(categoria)
+    @livros[categoria].each do |livro|
+      yield livro if block_given?#Isso evita que algum erro seja lançado caso nenhum bloco de código seja passado.
+    end
+  end
+  
   #Deixado apenas para fins de estudo
   def adicionaComoListaNãoUtilizar(livro)
     @livros << livro
