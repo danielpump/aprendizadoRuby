@@ -6,12 +6,16 @@ class Biblioteca
   def initialize
     #@livros = [] Era uma lista e virou um hash
     @livros = {}#As chaves indicam que a coleção agora é um hash
+    @banco_de_arquivos = BancoDeAquivos.singleton_class
   end
   
   #O mais comum para a chave de um hash é um Symbol, mas pode ser um objeto de qualquer tipo
   def adiciona(livro)
-    @livros[livro.categoria] ||= []#Atribui uma lista vazia apenas se o valor dessa chave for Nil
-    @livros[livro.categoria] << livro
+    salva livro do
+      @livros[livro.categoria] ||= []#Atribui uma lista vazia apenas se o valor dessa chave for Nil
+      @livros[livro.categoria] << livro
+    end
+    
   end
     
   
@@ -51,6 +55,15 @@ class Biblioteca
   #Deixado apenas para fins de estudo
   def adicionaComoListaNãoUtilizar(livro)
     @livros << livro
+  end
+
+  #métodos privados    
+  private
+  
+  #Salva o livro no arquivo e recebe um bloco de código indicando o que deve ser feito depois
+  def salva(livro)
+    @banco_de_arquivos.salva livro
+    yield
   end
 
 end	
