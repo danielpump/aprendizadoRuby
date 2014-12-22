@@ -32,6 +32,13 @@ class Biblioteca
     end
   end
   
+  #O caracter & no parametro indica que receberemos uma instancia de Proc, e chamamos o bloco de código com o método call.
+  def livros_por_categoria_com_proc(categoria, &bloco)
+    @livros[categoria].each do |livro|
+      bloco.call livro
+    end
+  end
+  
   #Deixado apenas para fins de estudo
   def adicionaComoListaNãoUtilizar(livro)
     @livros << livro
