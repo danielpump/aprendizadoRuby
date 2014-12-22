@@ -11,6 +11,18 @@ class Relatorio
     @biblioteca.livrosComoLista.inject(0){|total, livro| total += livro.preco}
   end
   
+  #Outra soma simplificada com map e inject
+  def totalSimplificado
+    @biblioteca.livrosComoLista.map(&:preco).inject(0){|total, preco| total += preco}
+  end
+  
+  #Outra soma super simplificada com map e inject e symbol
+  #O simbolo passado como argumento para o inject é referente ao método que será invocado e este método é chamado, passando como
+  #parametro o item da lista, neste caso o inject é iniciado em 0 
+  def totalSuperSimplificado
+    @biblioteca.livrosComoLista.map(&:preco).inject(:+)
+  end
+  
   def totalNormal
     soma = 0.0
     @biblioteca.livrosComoLista.each do |livro| 
