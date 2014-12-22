@@ -1,9 +1,10 @@
 =begin
   High-order functions são funções que recebem ou retornam outras funções, isso é feito utilizando blocos, lambdas ou procs
   bloco: Bloco é o meio mais comum de funções high-order
-  lambda:
+  lambda: Ou função anonima, é guardado em uma variavel as possui uma checagemde parametros quando utilizado em um método. A chamada
+  do return em um lambda volta o método para a sua execução normal e suporta um return especifico, pois se comporta como um método
   proc: Executa um bloco de código, mas pode ser passado como argumento e/ou atribuido a uma variavel, a grande vantagem em relação a proc, é o
-  reaproveitamento de funções.
+  reaproveitamento de funções. A chamada do return em uma proc devolve o retorno da proc para quem a chamou
 =end
 require File.expand_path("lib/loja_virtual")
 

@@ -20,3 +20,10 @@ end
 
 #É o & que indica que estamos passando uma Proc como parametro, se ele não for utilizado, estoura um erro de quantidade parametros no método
 puts biblioteca.livros_por_categoria_com_proc :testes, &imprime_livro_no_console
+
+imprime_no_console = lambda do |livro|
+  p livro.autor
+end
+
+#Lambda pode ser utilizado quase que como uma Proc
+puts biblioteca.livros_por_categoria_com_proc :testes, &imprime_livro_no_console
