@@ -39,6 +39,15 @@ class Biblioteca
     end
   end
   
+  #Dois ou mais blocos de código, os blocos devem ser passados como instancia de Proc e parametros normais de um método e ter o método
+  #call invocado dentro da execução.
+  def livros_por_categoria_com_mais_de_um_bloco_de_codigo(categoria, bloco1, bloco2)
+    @livros[categoria].each do |livro|
+      bloco1.call livro
+      bloco2.call livro
+    end
+  end
+  
   #Deixado apenas para fins de estudo
   def adicionaComoListaNãoUtilizar(livro)
     @livros << livro
