@@ -4,8 +4,8 @@ class Biblioteca
   attr_reader :livros 
   
   def initialize
-    #@livros = [] Era uma lista e virou um hash
-    @livros = {}#As chaves indicam que a coleção agora é um hash
+    #@livros = [] #Era uma lista e virou um hash
+    #@livros = {}#As chaves indicam que a coleção agora é um hash
     @banco_de_arquivos = BancoDeAquivos.singleton_class
   end
   
@@ -17,7 +17,11 @@ class Biblioteca
     end
     
   end
-    
+  
+  #Carrega os livros gravados em arquivo
+  def livros_do_banco
+    @livros ||= @banco_de_arquivos.carrega
+  end  
   
   #Retorna o mapa de livros como lista e não quebra nenhuma implementação
   def livrosComoLista
@@ -34,6 +38,11 @@ class Biblioteca
     @livros[categoria].each do |livro|
       yield livro if block_given?#Isso evita que algum erro seja lançado caso nenhum bloco de código seja passado.
     end
+  end
+  
+  #O comando select do array, realizada uma filtragem nos itens da lista dado o bloco de código utilizado 
+  def livros_por_categoria_com_select(categoria)
+    @livros.select{|livro| livro.categoria == categoria}
   end
   
   #O caracter & no parametro indica que receberemos uma instancia de Proc, e chamamos o bloco de código com o método call.
