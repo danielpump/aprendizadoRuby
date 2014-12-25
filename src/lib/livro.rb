@@ -1,6 +1,6 @@
 #Alterando o encode padrão do código da classe
 # coding: utf-8
-class Livro
+class Livro < Midia
 
   
 =begin
@@ -12,7 +12,7 @@ class Livro
   #Todo simbolo é uma string imutavel, simbolos tambem ficam em um dicionario de dados otimizado pelo interpretador
   
   #Cria os métodos getters baseado no simbolo do atributo passado
-  attr_reader :isbn, :titulo, :categoria, :autor
+  attr_reader :isbn, :categoria, :autor
   #Cria os métodos setters baseado no simbolo do atributo passado
   attr_writer :autor
   
@@ -34,12 +34,12 @@ class Livro
   end
   
   #A convenção para recuperar o valor de um atributo é criar um método com o mesmo nome do atributo
-  def preco
+  def precoOriginial
     @preco
   end
   
   #A conveção para criar atribuir um valor(set) é criar um método como nome do atributo seguido do sinal de =
-  def preco=(preco)
+  def precoOriginal=(preco)
     @preco = preco
   end
   
