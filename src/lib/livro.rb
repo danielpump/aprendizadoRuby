@@ -2,6 +2,8 @@
 # coding: utf-8
 class Livro < Midia
 
+  #include FormatadorMoeda#O include faz com que o interpretador olhe primeiro para o objeto e depois para o Mixing
+  prepend FormatadorMoeda#O prepend faz com que o interpretador olhe primeiro para o Mixing e depois para o Objeto
   
 =begin
   Para evitar a criação de vários metodos getters e setters mesmo que no padrão Ruby
@@ -26,6 +28,7 @@ class Livro < Midia
     @isbn = isbn
     @numero_de_paginas = numero_de_paginas
     @preco = preco
+    @desconto = 0.15
     @categoria = categoria
   end  
 
